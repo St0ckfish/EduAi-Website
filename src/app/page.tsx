@@ -1,12 +1,9 @@
 // import Spinner from "~/components/Spinner";
 import NavBar from "~/components/NavBar";
-import { api, HydrateClient } from "~/trpc/server";
 
 export default async function Home() {
-  void api.post.getLatest.prefetch();
 
   return (
-    <HydrateClient>
       <div className="min-h-screen bg-navy-900 relative overflow-hidden bg-[url(/images/hero.gif)] bg-cover">
       {/* Navigation */}
       <NavBar/>
@@ -39,6 +36,5 @@ export default async function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#000510_0%,transparent_100%)]" />
       </div>
     </div>
-    </HydrateClient>
   );
 }
