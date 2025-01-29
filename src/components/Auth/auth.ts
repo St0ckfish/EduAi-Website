@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 
 export const AUTH_TOKEN = 'token';
 
-export const getAuthToken = () => {
+export const getAuthToken = (): string | undefined => {
   return Cookies.get(AUTH_TOKEN);
 };
 

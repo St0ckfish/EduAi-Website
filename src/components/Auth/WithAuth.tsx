@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { getAuthToken } from './auth';
 import Spinner from '../Spinner';
+import { getAuthToken } from './auth';
+
 
 interface WithAuthProps {
   children: React.ReactNode;
