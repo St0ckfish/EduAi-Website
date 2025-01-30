@@ -102,6 +102,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="w-full relative">
+          <img src="/images/web3.png" alt="#" className="absolute  bottom-20 -left-0" />
+        </div>
     </footer>
   );
 };

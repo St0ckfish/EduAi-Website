@@ -220,7 +220,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="w-full grid justify-center">
+      <section className="w-full grid justify-center mt-20">
       <div className="container mx-auto grid w-full text-center justify-center items-center text-white">
           <h3 className="text-3xl font-medium mb-2">Contact Us</h3>
           <p className="text-xl">
