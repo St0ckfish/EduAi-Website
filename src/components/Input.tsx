@@ -50,11 +50,11 @@ const Input: React.FC<InputProps> = ({
           <button
             type="button"
             onClick={handleTogglePassword}
-            className="absolute inset-y-0 bottom-6 left-0 flex items-center px-2"
+            className="absolute inset-y-0 bottom-0 right-16 flex items-center px-2"
           >
             {inputType === "password" ? (
               <svg
-                className="h-5 w-5 text-supTitle outline-none"
+                className="h-5 w-5 text-gray-400 outline-none"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -67,7 +67,7 @@ const Input: React.FC<InputProps> = ({
               </svg>
             ) : (
               <svg
-                className="h-5 w-5 text-supTitle outline-none"
+                className="h-5 w-5 text-gray-400 outline-none"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

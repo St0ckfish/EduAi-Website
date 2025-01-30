@@ -216,7 +216,7 @@ export default async function Home() {
         </div>
         <div className="w-full relative">
           <img src="/images/web3.png" alt="#" className="absolute  bottom-[700px] -left-48" />
-          <img src="/images/web.png" alt="#" className="absolute  bottom-[300px] -left-48"  />
+          <img src="/images/web.png" alt="#" className="absolute  bottom-[268px] -left-48"  />
         </div>
       </section>
 

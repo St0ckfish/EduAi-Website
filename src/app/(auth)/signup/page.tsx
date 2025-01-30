@@ -4,7 +4,7 @@ import Input from '~/components/Input';
 import { IoLogoApple } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 
-const LoginPage = () => {
+const SignUp = () => {
   return (
     <div className="min-h-screen bg-[#070B1A] flex">
       {/* Left side - Decorative Image */}
@@ -27,6 +27,12 @@ const LoginPage = () => {
 
           <form className="space-y-6">
             <div className="space-y-4">
+
+              <Input
+                type="text"
+                placeholder="Username"
+                className="w-full px-4 py-3 bg-white border-gray-700 text-black placeholder-gray-400 outline-none rounded-md focus:ring-blue-500 focus:border-blue-500"
+              />
               <Input
                 type="email"
                 placeholder="Email"
@@ -40,17 +46,18 @@ const LoginPage = () => {
               />
             </div>
 
-            <div className="flex w-[393px] justify-end">
-              <a href="#" className="text-sm text-blue-400 hover:text-blue-300">
+            <div className="flex w-[393px] items-center justify-start gap-3">
+                <input type="checkbox" name="remeber" id="remeber" />
+              <label htmlFor='remeber' className="text-sm text-white">
                 Forgot password?
-              </a>
+              </label>
             </div>
 
             <button
               type="submit"
               className="w-[393px] py-3 px-4 bg-[#1B486A] text-white rounded-md hover:bg-[#1B486A]/90 transition-colors"
             >
-              Login
+              Sign Up
             </button>
           </form>
 
@@ -88,4 +95,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUp;

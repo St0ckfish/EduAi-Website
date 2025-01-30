@@ -132,7 +132,9 @@ const NavBar = () => {
     </div>
         <nav className="px-6 py-4 bg-[#091225]">
             <div className="flex justify-between items-center">
+                <Link href="/">
                 <img src="/images/logo.png" alt="#" className="w-[150px]" />
+                </Link>
                 <div className="flex items-center gap-6">
                     <div className="hidden md:flex items-center">
                         <NavigationMenu>
@@ -181,12 +183,12 @@ const NavBar = () => {
                             </NavigationMenuList>
                         </NavigationMenu>
 
-                        <Link href="/" className="text-gray-300 hover:text-white px-3">Resources</Link>
-                        <Link href="/" className="text-gray-300 hover:text-white px-3">Pricing</Link>
-                        <Link href="/" className="text-gray-300 hover:text-white px-3">Guide</Link>
+                        <Link href="/resources" className="text-gray-300 hover:text-white px-3">Resources</Link>
+                        <Link href="/pricing" className="text-gray-300 hover:text-white px-3">Pricing</Link>
+                        <Link href="/guide" className="text-gray-300 hover:text-white px-3">Guide</Link>
                     </div>
-                    <Link href="/" className="px-4 py-2 text-[#6D758F] bg-white rounded-md">Login</Link>
-                    <Link href="/" className="px-4 py-2 bg-[#1B486A] text-white rounded-md">
+                    <Link href="/login" className="px-4 py-2 text-[#6D758F] bg-white rounded-md">Login</Link>
+                    <Link href="/signup" className="px-4 py-2 bg-[#1B486A] text-white rounded-md">
                         Sign up
                     </Link>
                 </div>
