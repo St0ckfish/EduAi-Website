@@ -21,7 +21,7 @@ const SignUp = () => {
         <div className="w-full max-w-md space-y-8">
           <div className="text-center w-[393px]">
             <h2 className="text-2xl font-bold text-white mb-2">
-              Login your account!
+            Create your account!
             </h2>
           </div>
 

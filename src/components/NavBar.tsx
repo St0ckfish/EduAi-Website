@@ -186,6 +186,7 @@ const NavBar = () => {
                         <Link href="/resources" className="text-gray-300 hover:text-white px-3">Resources</Link>
                         <Link href="/pricing" className="text-gray-300 hover:text-white px-3">Pricing</Link>
                         <Link href="/guide" className="text-gray-300 hover:text-white px-3">Guide</Link>
+                        <Link href="/sales" className="text-gray-300 hover:text-white px-3">Contact Sales</Link>
                     </div>
                     <Link href="/login" className="px-4 py-2 text-[#6D758F] bg-white rounded-md">Login</Link>
                     <Link href="/signup" className="px-4 py-2 bg-[#1B486A] text-white rounded-md">
