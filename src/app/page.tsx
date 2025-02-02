@@ -90,7 +90,7 @@ export default async function Home() {
       </section>
 
       <section className="w-full py-[200px]">
-        <img src="/images/web.png" alt="#" className="absolute  top-[1025px]" />
+        <img src="/images/web.png" alt="#" className="absolute  top-[1060px]" />
         <div className="container mx-auto grid grid-cols-2 justify-center items-center  w-full">
           <Video isBackground />
           <div className="w-full  text-white">
@@ -201,16 +201,16 @@ export default async function Home() {
           </p>
         </div>
         <div className="container mx-auto flex flex-wrap w-full justify-center items-center gap-20">
-          <Link href="/">
+          <Link href="/teacher">
             <img src="/images/Group 1261156640.png" alt="#" />
           </Link>
-          <Link href="/">
+          <Link href="/admin">
             <img src="/images/Group 1261156641.png" alt="#" />
           </Link>
-          <Link href="/">
+          <Link href="/parent">
             <img src="/images/Group 1261156642.png" alt="#" />
           </Link>
-          <Link href="/">
+          <Link href="/student">
             <img src="/images/Group 1261156643.png" alt="#" />
           </Link>
         </div>
