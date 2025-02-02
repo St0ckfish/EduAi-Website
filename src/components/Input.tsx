@@ -27,8 +27,8 @@ const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <label className="grid w-full gap-2.5 text-end text-gray-200">
-      <p className="text-start text-sm font-medium ">{label}</p>
+    <label className="grid w-full gap-1.5 sm:gap-2.5 text-end text-gray-200">
+      <p className="text-start text-xs sm:text-sm font-medium">{label}</p>
       <div className="relative w-full flex justify-start">
         <input
           {...props}
@@ -36,25 +36,30 @@ const Input: React.FC<InputProps> = ({
           {...register}
           className={
             className ??
-            `"w-full px-4 py-3 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" ${
-              error ? "border border-error" : ""
-            } ${theme === "search" ? "pl-10 pr-4" : "px-4"}`
+            `w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base bg-white rounded-md sm:rounded-lg 
+             focus:outline-none focus:ring-2 focus:ring-blue-500
+             ${error ? "border border-error" : ""} 
+             ${theme === "search" ? "pl-8 sm:pl-10 pr-3 sm:pr-4" : "px-3 sm:px-4"}`
           }
         />
         {error ? (
-          <small className="mr-2 text-sm text-error">{error}</small>
+          <small className="absolute -bottom-5 left-0 text-xs sm:text-sm text-error">
+            {error}
+          </small>
         ) : (
-          <small className="mr-2 text-sm opacity-0">No Error</small>
+          <small className="absolute -bottom-5 left-0 text-xs sm:text-sm opacity-0">
+            No Error
+          </small>
         )}
         {type === "password" && (
           <button
             type="button"
             onClick={handleTogglePassword}
-            className="absolute inset-y-0 bottom-0 right-16 flex items-center px-2"
+            className="absolute inset-y-0 bottom-0 right-12 sm:right-16 flex items-center px-1.5 sm:px-2"
           >
             {inputType === "password" ? (
               <svg
-                className="h-5 w-5 text-gray-400 outline-none"
+                className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 outline-none"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -67,7 +72,7 @@ const Input: React.FC<InputProps> = ({
               </svg>
             ) : (
               <svg
-                className="h-5 w-5 text-gray-400 outline-none"
+                className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 outline-none"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -83,11 +88,9 @@ const Input: React.FC<InputProps> = ({
           </button>
         )}
         {theme === "search" && (
-          <div className="pointer-events-none absolute inset-y-0 bottom-6 left-0 flex items-center px-2">
+          <div className="pointer-events-none absolute inset-y-0 bottom-6 left-0 flex items-center px-1.5 sm:px-2">
             <svg
-              className="h-5 w-5 text-purpleMain"
-              width="24"
-              height="24"
+              className="h-4 w-4 sm:h-5 sm:w-5 text-purpleMain"
               viewBox="0 0 24 24"
               strokeWidth="2"
               stroke="currentColor"
