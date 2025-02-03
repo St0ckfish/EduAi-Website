@@ -10,9 +10,10 @@ const Parent = () => {
         <img src="/images/web.png" alt="#" className="absolute  top-10" />
 
             <section className="bg-[url(/images/heroBG.png)] bg-cover py-10">
-                <div className="mx-auto container flex justify-between items-center">
-                <div className="w-full md:w-1/2 text-white">
-            <div className='flex gap-4 items-center mb-4'>   
+            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+                    {/* Left side - Text Content */}
+                    <div className="w-full md:w-1/2 text-white mb-8 md:mb-0">
+                        <div className="flex gap-4 items-center mb-4">
                              <img src="/images/logo.png" alt="#" className="w-[150px]" />
                              <p className="text-xl text-gray-300">Parent App</p>
             </div>
@@ -26,7 +27,9 @@ const Parent = () => {
                   Request a demo
                   </button>
                 </div>
+                <div>
                     <HeroImage background="/images/parentHero.jpeg" isBackground/>
+                </div>
                 </div>
             </section>
             <section>
@@ -37,9 +40,10 @@ const Parent = () => {
             <section>
                 <HowItWorks title="Get Started with Parent App" blockTwoTitle="Add Your Children" blockTwoDes="Add your children to your account and track their progress." blockThreeTitle="Start Tracking" blockThreeDes="Monitor their grades, attendance, and communicate with teachers easily."/>
             </section>
-            <section className="p-16 my-10">
-            <div className="mx-auto container flex justify-between items-center">
-            <div className="w-full md:w-1/2 text-white">
+            <section className="p-8 md:p-16 my-10">
+                <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                    {/* Left side - Text Content */}
+                    <div className="w-full md:w-1/2 text-white text-center md:text-left">
                   <h1 className="text-xl md:text-5xl font-bold mb-6">
                   Try the Parent App Now
                   </h1>
@@ -47,8 +51,8 @@ const Parent = () => {
                   Discover how you can track your children’s progress through an interactive demo of the Parent App. Click below to try the demo and explore all the features.
                   </p>
                 </div>
-                <div>
-                    <img src="/images/Frame 1686561114.png" alt="#" />
+                <div className="w-full md:w-1/2 flex justify-center">
+                    <img src="/images/Frame 1686561114.png" className="max-w-full h-auto" alt="#" />
                 </div>
             </div>
             </section>

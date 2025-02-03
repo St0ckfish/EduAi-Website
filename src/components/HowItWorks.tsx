@@ -9,18 +9,26 @@ interface HowItWorksProps {
   blockThreeDes: string;
 }
 
-const HowItWorks = ({title, blockTwoTitle, blockTwoDes, blockThreeTitle, blockThreeDes}: HowItWorksProps) => {
+const HowItWorks = ({
+  title,
+  blockTwoTitle,
+  blockTwoDes,
+  blockThreeTitle,
+  blockThreeDes
+}: HowItWorksProps) => {
   return (
-    <div className=" text-white py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl font-medium mb-2">How It Works</h2>
-          <p className="text-gray-400 text-sm">{title}</p>
+    <div className="text-white py-8 sm:py-12 lg:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Header */}
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-xl sm:text-2xl font-medium mb-2">How It Works</h2>
+          <p className="text-gray-400 text-sm sm:text-base">{title}</p>
         </div>
         
-        <div className="relative flex justify-between items-start gap-8">
+        {/* Blocks Container */}
+        <div className="relative flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 sm:gap-8">
           {/* Block 1 */}
-          <div className="w-96 h-36 bg-[#1A2435] rounded-xl p-6">
+          <div className="w-full sm:w-[400px] lg:w-96 bg-[#1A2435] rounded-xl p-4 sm:p-6">
             <div className="flex gap-3 mb-3 items-center">
               <div className="w-8 h-8 bg-[#2A3447] rounded-full flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,13 +36,15 @@ const HowItWorks = ({title, blockTwoTitle, blockTwoDes, blockThreeTitle, blockTh
                   <path d="M11 17H11.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
               </div>
-              <span className="text-lg font-medium">Log In</span>
+              <span className="text-base sm:text-lg font-medium">Log In</span>
             </div>
-            <p className="text-gray-400 text-sm">Create an account or use your school credentials.</p>
+            <p className="text-gray-400 text-xs sm:text-sm">
+              Create an account or use your school credentials.
+            </p>
           </div>
 
           {/* Block 2 */}
-          <div className="w-96 h-36 bg-[#1A2435] rounded-xl p-6">
+          <div className="w-full sm:w-[400px] lg:w-96 bg-[#1A2435] rounded-xl p-4 sm:p-6">
             <div className="flex gap-3 mb-3 items-center">
               <div className="w-8 h-8 bg-[#2A3447] rounded-full flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,13 +53,13 @@ const HowItWorks = ({title, blockTwoTitle, blockTwoDes, blockThreeTitle, blockTh
                   <path d="M8 13H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
               </div>
-              <span className="text-lg font-medium">{blockTwoTitle}</span>
+              <span className="text-base sm:text-lg font-medium">{blockTwoTitle}</span>
             </div>
-            <p className="text-gray-400 text-sm">{blockTwoDes}</p>
+            <p className="text-gray-400 text-xs sm:text-sm">{blockTwoDes}</p>
           </div>
 
           {/* Block 3 */}
-          <div className="w-96 h-36 bg-[#1A2435] rounded-xl p-6">
+          <div className="w-full sm:w-[400px] lg:w-96 bg-[#1A2435] rounded-xl p-4 sm:p-6">
             <div className="flex gap-3 mb-3 items-center">
               <div className="w-8 h-8 bg-[#2A3447] rounded-full flex items-center justify-center">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,21 +67,21 @@ const HowItWorks = ({title, blockTwoTitle, blockTwoDes, blockThreeTitle, blockTh
                   <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z" stroke="currentColor" strokeWidth="2"/>
                 </svg>
               </div>
-              <span className="text-lg font-medium">{blockThreeTitle}</span>
+              <span className="text-base sm:text-lg font-medium">{blockThreeTitle}</span>
             </div>
-            <p className="text-gray-400 text-sm">{blockThreeDes}</p>
+            <p className="text-gray-400 text-xs sm:text-sm">{blockThreeDes}</p>
           </div>
 
-          {/* Arrow Images */}
+          {/* Arrow Images - Hidden on mobile, shown on desktop */}
           <img 
             src="/images/Arrow 6.png" 
             alt="Down arrow"
-            className="absolute top-40 left-[27%] w-[200px]"
+            className="hidden lg:block absolute top-40 left-[27%] w-[150px] xl:w-[200px]"
           />
           <img 
             src="/images/Arrow 05.png" 
             alt="Up arrow"
-            className="absolute -top-14 right-[23%] w-[200px]"
+            className="hidden lg:block absolute -top-14 right-[23%] w-[150px] xl:w-[200px]"
           />
         </div>
       </div>

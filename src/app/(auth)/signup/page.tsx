@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
   return (
-    <div className="min-h-screen bg-[#070B1A] flex">
+    <div className="min-h-screen bg-[#070B1A] flex flex-col lg:flex-row">
       {/* Left side - Decorative Image */}
       <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
         <div className="absolute inset-0">
@@ -17,9 +17,9 @@ const SignUp = () => {
       </div>
 
       {/* Right side - Login Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center ">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6">
         <div className="w-full max-w-md space-y-8">
-          <div className="text-center w-[393px]">
+          <div className="text-center">
             <h2 className="text-2xl font-bold text-white mb-2">
             Create your account!
             </h2>
@@ -46,7 +46,7 @@ const SignUp = () => {
               />
             </div>
 
-            <div className="flex w-[393px] items-center justify-start gap-3">
+            <div className="flex items-center justify-start gap-3">
                 <input type="checkbox" name="remeber" id="remeber" />
               <label htmlFor='remeber' className="text-sm text-white">
                 Forgot password?
@@ -55,13 +55,13 @@ const SignUp = () => {
 
             <button
               type="submit"
-              className="w-[393px] py-3 px-4 bg-[#1B486A] text-white rounded-md hover:bg-[#1B486A]/90 transition-colors"
+              className="w-full py-3 px-4 bg-[#1B486A] text-white rounded-md hover:bg-[#1B486A]/90 transition-colors"
             >
               Sign Up
             </button>
           </form>
 
-          <div className="space-y-6 w-[393px]">
+          <div className="space-y-6 ">
             <div className="text-center text-gray-400">
               Sign in With
             </div>

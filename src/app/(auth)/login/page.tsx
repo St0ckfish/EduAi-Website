@@ -6,20 +6,19 @@ import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
   return (
-    <div className="min-h-screen bg-[#070B1A] flex">
-      {/* Left side - Decorative Image */}
+    <div className="min-h-screen bg-[#070B1A] flex flex-col lg:flex-row">
+      {/* Left side - Decorative Image (visible on large screens) */}
       <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0">
-            <img src="/images/login.png" alt="#" />
-          </div>
-        </div>
+        <img 
+          src="/images/login.png" 
+          alt="Login Decoration" 
+        />
       </div>
 
       {/* Right side - Login Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center ">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6">
         <div className="w-full max-w-md space-y-8">
-          <div className="text-center w-[393px]">
+          <div className="text-center">
             <h2 className="text-2xl font-bold text-white mb-2">
               Login your account!
             </h2>
@@ -30,17 +29,17 @@ const LoginPage = () => {
               <Input
                 type="email"
                 placeholder="Email"
-                className="w-full px-4 py-3 bg-white border-gray-700 text-black placeholder-gray-400 outline-none rounded-md focus:ring-blue-500 focus:border-blue-500"
+                // className="w-full px-4 py-3 bg-white border border-gray-700 text-black placeholder-gray-400 rounded-md focus:ring-blue-500 focus:border-blue-500"
               />
               
               <Input
                 type="password"
                 placeholder="Password"
-                className="w-full px-4 py-3 bg-white border-gray-700 text-black placeholder-gray-400 outline-none rounded-md focus:ring-blue-500 focus:border-blue-500"
+                // className="w-full px-4 py-3 bg-white border border-gray-700 text-black placeholder-gray-400 rounded-md focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
-            <div className="flex w-[393px] justify-end">
+            <div className="flex justify-end">
               <a href="#" className="text-sm text-blue-400 hover:text-blue-300">
                 Forgot password?
               </a>
@@ -48,13 +47,13 @@ const LoginPage = () => {
 
             <button
               type="submit"
-              className="w-[393px] py-3 px-4 bg-[#1B486A] text-white rounded-md hover:bg-[#1B486A]/90 transition-colors"
+              className="w-full py-3 px-4 bg-[#1B486A] text-white rounded-md hover:bg-[#1B486A]/90 transition-colors"
             >
               Login
             </button>
           </form>
 
-          <div className="space-y-6 w-[393px]">
+          <div className="space-y-6">
             <div className="text-center text-gray-400">
               Sign in With
             </div>
@@ -67,11 +66,11 @@ const LoginPage = () => {
               </button>
 
               <button className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
-              <FcGoogle size={25} />
+                <FcGoogle size={25} />
               </button>
 
               <button className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
-              <IoLogoApple color='#ffffff' size={25} />
+                <IoLogoApple color="#ffffff" size={25} />
               </button>
             </div>
 

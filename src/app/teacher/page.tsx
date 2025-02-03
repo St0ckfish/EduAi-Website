@@ -9,9 +9,10 @@ const Teacher = () => {
         <main>
             <img src="/images/web.png" alt="#" className="absolute  top-10" />
             <section className="bg-[url(/images/heroBG.png)] bg-cover py-10">
-                <div className="mx-auto container flex justify-between items-center">
-                    <div className="w-full md:w-1/2 text-white">
-                        <div className='flex gap-4 items-center mb-4'>
+                <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+                    {/* Left side - Text Content */}
+                    <div className="w-full md:w-1/2 text-white mb-8 md:mb-0">
+                        <div className="flex gap-4 items-center mb-4">
                             <img src="/images/logo.png" alt="#" className="w-[150px]" />
                             <p className="text-xl text-gray-300">Teacher App</p>
                         </div>
@@ -25,7 +26,9 @@ const Teacher = () => {
                             Request a demo
                         </button>
                     </div>
-                    <HeroImage background="/images/teacherHero.jpeg" isBackground />
+                    <div className="">
+                        <HeroImage background="/images/teacherHero.jpeg" isBackground />
+                    </div>
                 </div>
             </section>
             <section>
@@ -36,9 +39,10 @@ const Teacher = () => {
             <section>
                 <HowItWorks title="Getting Started with Teacher App" blockTwoTitle="Set Up Classes" blockTwoDes="Add classes, students, and curricula." blockThreeTitle="Start Teaching" blockThreeDes="Upload materials, track attendance, and engage students." />
             </section>
-            <section className="p-16 my-10">
-                <div className="mx-auto container flex justify-between items-center">
-                    <div className="w-full md:w-1/2 text-white">
+            <section className="p-8 md:p-16 my-10">
+                <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                    {/* Left side - Text Content */}
+                    <div className="w-full md:w-1/2 text-white text-center md:text-left">
                         <h1 className="text-xl md:text-5xl font-bold mb-6">
                             Try the Teacher App Now
                         </h1>
@@ -46,8 +50,13 @@ const Teacher = () => {
                             Discover how you can enhance your teaching experience and manage classrooms with an interactive demo of the Teacher App. Click below to try the demo and explore all the features.
                         </p>
                     </div>
-                    <div>
-                        <img src="/images/Frame 1686561116.png" alt="#" />
+                    {/* Right side - Image */}
+                    <div className="w-full md:w-1/2 flex justify-center">
+                        <img
+                            src="/images/Frame 1686561116.png"
+                            alt="#"
+                            className="max-w-full h-auto"
+                        />
                     </div>
                 </div>
             </section>

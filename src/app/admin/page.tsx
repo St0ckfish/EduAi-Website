@@ -10,9 +10,10 @@ const Admin = () => {
             <img src="/images/web.png" alt="#" className="absolute  top-10" />
 
             <section className="bg-[url(/images/heroBG.png)] bg-cover py-10">
-                <div className="mx-auto container flex justify-between items-center">
-                    <div className="w-full md:w-1/2 text-white">
-                        <div className='flex gap-4 items-center mb-4'>
+            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+                    {/* Left side - Text Content */}
+                    <div className="w-full md:w-1/2 text-white mb-8 md:mb-0">
+                        <div className="flex gap-4 items-center mb-4">
                             <img src="/images/logo.png" alt="#" className="w-[150px]" />
                             <p className="text-xl text-gray-300">Admin App</p>
                         </div>
@@ -25,7 +26,9 @@ const Admin = () => {
                             Request a demo
                         </button>
                     </div>
+                    <div>
                     <HeroImage background="/images/adminHero.jpeg" isBackground />
+                    </div>
                 </div>
             </section>
             <section>
@@ -36,9 +39,10 @@ const Admin = () => {
             <section>
                 <HowItWorks title="Get Started with Admin App" blockTwoTitle="Set Up Classes and Staff" blockTwoDes="Add students, teachers, and subjects to your system." blockThreeTitle="Manage and Monitor" blockThreeDes="Track attendance, performance, and schedules with just a few clicks." />
             </section>
-            <section className="p-16 my-10">
-                <div className="mx-auto container flex justify-between items-center">
-                    <div className="w-full md:w-1/2 text-white">
+            <section className="p-8 md:p-16 my-10">
+                <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                    {/* Left side - Text Content */}
+                    <div className="w-full md:w-1/2 text-white text-center md:text-left">
                         <h1 className="text-xl md:text-5xl font-bold mb-6">
                             Try the Admin App Now
                         </h1>
@@ -46,8 +50,8 @@ const Admin = () => {
                             Explore the features of the Admin App with an interactive demo. Click below to see how you can simplify school management.
                         </p>
                     </div>
-                    <div>
-                        <img src="/images/Frame 1686561115.png" alt="#" />
+                    <div className="w-full md:w-1/2 flex justify-center">
+                        <img src="/images/Frame 1686561115.png" className="max-w-full h-auto" alt="#" />
                     </div>
                 </div>
             </section>

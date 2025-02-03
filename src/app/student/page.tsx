@@ -9,9 +9,10 @@ const Student = () => {
         <main>
             <img src="/images/web.png" alt="#" className="absolute  top-10" />
             <section className="bg-[url(/images/heroBG.png)] bg-cover py-10">
-                <div className="mx-auto container flex justify-between items-center">
-                    <div className="w-full md:w-1/2 text-white">
-                        <div className='flex gap-4 items-center mb-4'>
+            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+                    {/* Left side - Text Content */}
+                    <div className="w-full md:w-1/2 text-white mb-8 md:mb-0">
+                        <div className="flex gap-4 items-center mb-4">
                             <img src="/images/logo.png" alt="#" className="w-[150px]" />
                             <p className="text-xl text-gray-300">Student App</p>
                         </div>
@@ -25,7 +26,10 @@ const Student = () => {
                             Request a demo
                         </button>
                     </div>
+                    <div>
+
                     <HeroImage background="/images/studentHero.jpeg" isBackground />
+                    </div>
                 </div>
             </section>
             <section>
@@ -36,17 +40,18 @@ const Student = () => {
             <section>
                 <HowItWorks title="Get Started with Student App" blockTwoTitle="Add Your Subjects" blockTwoDes="Set up your subjects and get detailed reports." blockThreeTitle="Track and Submit" blockThreeDes="View assignments, submit work, and monitor your attendance." />
             </section>
-            <section className="p-16 my-10">
-                <div className="mx-auto container flex justify-between items-center">
-                    <div className="w-full md:w-1/2 text-white">
+            <section className="p-8 md:p-16 my-10">
+                <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                    {/* Left side - Text Content */}
+                    <div className="w-full md:w-1/2 text-white text-center md:text-left">
                         <h1 className="text-xl md:text-5xl font-bold mb-6">
                             Try the Student App Now
                         </h1>
                         <p className="text-lg text-gray-300 mb-8">
                             Explore the features of the Student App through an interactive demo. Click below to try it out and see how you can manage your studies more effectively.                  </p>
                     </div>
-                    <div>
-                        <img src="/images/Frame 1686561113.png" alt="#" />
+                    <div className="w-full md:w-1/2 flex justify-center">
+                        <img src="/images/Frame 1686561113.png" className="max-w-full h-auto" alt="#" />
                     </div>
                 </div>
             </section>

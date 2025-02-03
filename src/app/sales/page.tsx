@@ -65,7 +65,7 @@ const ContactForm = () => {
 
                 <div className="bg-[#1A2435] rounded-xl p-8 shadow-lg">
                     <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Full Name */}
                             <div>
                                 <label className="block text-sm mb-2">Full Name</label>

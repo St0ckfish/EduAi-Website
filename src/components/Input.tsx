@@ -55,7 +55,7 @@ const Input: React.FC<InputProps> = ({
           <button
             type="button"
             onClick={handleTogglePassword}
-            className="absolute inset-y-0 bottom-0 right-12 sm:right-16 flex items-center px-1.5 sm:px-2"
+            className="absolute inset-y-0 bottom-0 right-12 sm:right-1 flex items-center px-1.5 sm:px-2"
           >
             {inputType === "password" ? (
               <svg
