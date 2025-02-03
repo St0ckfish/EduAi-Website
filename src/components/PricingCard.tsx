@@ -53,7 +53,7 @@ const PricingCard = ({
         </ul>
         
         {/* Action button */}
-        <button className={`w-full mt-6 px-4 py-2 rounded ${isMiddle ? 'bg-[#e2fcfe] text-black' : 'bg-cyan-400 bg-opacity-20'} border border-cyan-400 hover:bg-opacity-30 transition-colors`}>
+        <button className={`w-full mt-6 px-4 py-2 rounded ${isMiddle ? 'bg-[#e2fcfe] text-black' : 'bg-cyan-400 bg-opacity-20'} ${title === 'Free' ? "translate-y-12 max-[978px]:translate-y-1" : "" } border border-cyan-400 hover:bg-opacity-30 transition-colors`}>
           More Details →
         </button>
       </div>

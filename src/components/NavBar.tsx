@@ -73,16 +73,6 @@ const solutionItems = [
     href: "/solutions/enterprise",
     description: "Large-scale solutions for enterprise businesses.",
   },
-  {
-    title: "For Startups",
-    href: "/solutions/startups",
-    description: "Flexible solutions for growing businesses.",
-  },
-  {
-    title: "For Teams",
-    href: "/solutions/teams",
-    description: "Collaborative tools for high-performing teams.",
-  },
 ]
 
 const MobileNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
