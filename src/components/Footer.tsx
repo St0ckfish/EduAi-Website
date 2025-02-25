@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { Facebook, Twitter, Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () => {
     const year = new Date().getFullYear();
@@ -94,9 +95,10 @@ const Footer = () => {
               {/* Legal links */}
               <div className="flex space-x-4 text-sm">
                 <span>© {year} EduAI</span>
-                <a href="#" className="hover:text-white">Security</a>
-                <a href="#" className="hover:text-white">Privacy</a>
-                <a href="#" className="hover:text-white">Terms</a>
+                <Link href="/faq" className="hover:text-white">FAQ</Link>
+                <Link href="/privacy" className="hover:text-white">Privacy</Link>
+                <Link href="/terms" className="hover:text-white">Terms</Link>
+                <Link href="/deletion" className="hover:text-white">Deletion</Link>
               </div>
             </div>
           </div>
