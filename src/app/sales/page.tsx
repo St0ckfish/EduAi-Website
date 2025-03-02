@@ -1,7 +1,14 @@
 "use client"
 import React, { useState } from 'react';
+import useLanguageStore from '~/lib/store';
 
 const ContactForm = () => {
+    const language = useLanguageStore((state) => state.language);
+
+    const translate = (en: string, fr: string, ar: string) => {
+      return language === 'fr' ? fr : language === 'ar' ? ar : en;
+    };
+
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -56,10 +63,18 @@ const ContactForm = () => {
             <div className="max-w-4xl mx-auto px-4 relative">
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-medium mb-4">
-                        Contact Us To Find A Plan That Suits Your Needs!
+                        {translate(
+                            "Contact Us To Find A Plan That Suits Your Needs!",
+                            "Contactez-nous pour trouver un plan qui répond à vos besoins !",
+                            "اتصل بنا للعثور على خطة تناسب احتياجاتك!"
+                        )}
                     </h1>
                     <p className="text-gray-400">
-                        Whether you represent an educational institution or are looking for a comprehensive solution, we&apos;re here to help.
+                        {translate(
+                            "Whether you represent an educational institution or are looking for a comprehensive solution, we're here to help.",
+                            "Que vous représentiez une institution éducative ou que vous recherchiez une solution complète, nous sommes là pour vous aider.",
+                            "سواء كنت تمثل مؤسسة تعليمية أو تبحث عن حل شامل، نحن هنا لمساعدتك."
+                        )}
                     </p>
                 </div>
 
@@ -68,11 +83,13 @@ const ContactForm = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Full Name */}
                             <div>
-                                <label className="block text-sm mb-2">Full Name</label>
+                                <label className="block text-sm mb-2">
+                                    {translate("Full Name", "Nom Complet", "الاسم الكامل")}
+                                </label>
                                 <input
                                     type="text"
                                     name="fullName"
-                                    placeholder="Enter Full Name"
+                                    placeholder={translate("Enter Full Name", "Entrez votre nom complet", "أدخل الاسم الكامل")}
                                     className="w-full px-4 py-2 bg-[#010B1D] rounded-lg border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400"
                                     onChange={handleInputChange}
                                     value={formData.fullName}
@@ -81,11 +98,13 @@ const ContactForm = () => {
 
                             {/* Email */}
                             <div>
-                                <label className="block text-sm mb-2">Email</label>
+                                <label className="block text-sm mb-2">
+                                    {translate("Email", "E-mail", "البريد الإلكتروني")}
+                                </label>
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="Enter Email"
+                                    placeholder={translate("Enter Email", "Entrez votre e-mail", "أدخل البريد الإلكتروني")}
                                     className="w-full px-4 py-2 bg-[#010B1D] rounded-lg border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400"
                                     onChange={handleInputChange}
                                     value={formData.email}
@@ -94,11 +113,13 @@ const ContactForm = () => {
 
                             {/* Phone Number */}
                             <div>
-                                <label className="block text-sm mb-2">Phone Number</label>
+                                <label className="block text-sm mb-2">
+                                    {translate("Phone Number", "Numéro de Téléphone", "رقم الهاتف")}
+                                </label>
                                 <input
                                     type="tel"
                                     name="phone"
-                                    placeholder="Enter Phone Number"
+                                    placeholder={translate("Enter Phone Number", "Entrez votre numéro de téléphone", "أدخل رقم الهاتف")}
                                     className="w-full px-4 py-2 bg-[#010B1D] rounded-lg border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400"
                                     onChange={handleInputChange}
                                     value={formData.phone}
@@ -107,11 +128,13 @@ const ContactForm = () => {
 
                             {/* Organization/School Name */}
                             <div>
-                                <label className="block text-sm mb-2">Organization/School Name</label>
+                                <label className="block text-sm mb-2">
+                                    {translate("Organization/School Name", "Nom de l'Organisation/École", "اسم المؤسسة/المدرسة")}
+                                </label>
                                 <input
                                     type="text"
                                     name="organization"
-                                    placeholder="Enter School Name"
+                                    placeholder={translate("Enter School Name", "Entrez le nom de l'école", "أدخل اسم المدرسة")}
                                     className="w-full px-4 py-2 bg-[#010B1D] rounded-lg border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400"
                                     onChange={handleInputChange}
                                     value={formData.organization}
@@ -121,26 +144,38 @@ const ContactForm = () => {
 
                         {/* Educational Institution Type */}
                         <div>
-                            <label className="block text-sm mb-2">Educational Institution Type</label>
+                            <label className="block text-sm mb-2">
+                                {translate("Educational Institution Type", "Type d'Institution Éducative", "نوع المؤسسة التعليمية")}
+                            </label>
                             <select
                                 name="institutionType"
                                 className="w-full px-4 py-2 bg-[#010B1D] rounded-lg border border-gray-700 text-white focus:outline-none focus:border-cyan-400 appearance-none"
                                 onChange={handleInputChange}
                                 value={formData.institutionType}
                             >
-                                <option value="">Select Educational Institution Type</option>
-                                <option value="school">School</option>
-                                <option value="college">College</option>
-                                <option value="university">University</option>
+                                <option value="">
+                                    {translate("Select Educational Institution Type", "Sélectionnez le type d'institution éducative", "اختر نوع المؤسسة التعليمية")}
+                                </option>
+                                <option value="school">
+                                    {translate("School", "École", "مدرسة")}
+                                </option>
+                                <option value="college">
+                                    {translate("College", "Collège", "كلية")}
+                                </option>
+                                <option value="university">
+                                    {translate("University", "Université", "جامعة")}
+                                </option>
                             </select>
                         </div>
 
                         {/* Message */}
                         <div>
-                            <label className="block text-sm mb-2">Message</label>
+                            <label className="block text-sm mb-2">
+                                {translate("Message", "Message", "الرسالة")}
+                            </label>
                             <textarea
                                 name="message"
-                                placeholder="Type your message here..."
+                                placeholder={translate("Type your message here...", "Tapez votre message ici...", "اكتب رسالتك هنا...")}
                                 rows={4}
                                 className="w-full px-4 py-2 bg-[#010B1D] rounded-lg border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 resize-none"
                                 onChange={handleInputChange}
@@ -150,7 +185,9 @@ const ContactForm = () => {
 
                         {/* Interests */}
                         <div>
-                            <label className="block text-sm mb-3">Interested in:</label>
+                            <label className="block text-sm mb-3">
+                                {translate("Interested in:", "Intéressé par :", "مهتم بـ:")}
+                            </label>
                             <div className="space-y-2">
                                 <label className="flex items-center space-x-2">
                                     <input
@@ -160,7 +197,9 @@ const ContactForm = () => {
                                         onChange={handleCheckboxChange}
                                         checked={formData.interests.monthlyPlan}
                                     />
-                                    <span className="text-sm">Monthly Plan</span>
+                                    <span className="text-sm">
+                                        {translate("Monthly Plan", "Plan Mensuel", "الخطة الشهرية")}
+                                    </span>
                                 </label>
                                 <label className="flex items-center space-x-2">
                                     <input
@@ -170,7 +209,9 @@ const ContactForm = () => {
                                         onChange={handleCheckboxChange}
                                         checked={formData.interests.annualPlan}
                                     />
-                                    <span className="text-sm">Annual Plan</span>
+                                    <span className="text-sm">
+                                        {translate("Annual Plan", "Plan Annuel", "الخطة السنوية")}
+                                    </span>
                                 </label>
                                 <label className="flex items-center space-x-2">
                                     <input
@@ -180,7 +221,9 @@ const ContactForm = () => {
                                         onChange={handleCheckboxChange}
                                         checked={formData.interests.systemCustomization}
                                     />
-                                    <span className="text-sm">System Customization</span>
+                                    <span className="text-sm">
+                                        {translate("System Customization", "Personnalisation du Système", "تخصيص النظام")}
+                                    </span>
                                 </label>
                             </div>
                         </div>
@@ -190,7 +233,7 @@ const ContactForm = () => {
                             type="submit"
                             className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
                         >
-                            Send Your Inquiry →
+                            {translate("Send Your Inquiry →", "Envoyer votre demande →", "إرسال استفسارك →")}
                         </button>
                     </form>
                 </div>

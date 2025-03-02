@@ -1,56 +1,63 @@
+"use client"
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Input from "~/components/Input";
 import PricingCard from "~/components/PricingCard";
 import Video from "~/components/Video";
+import useLanguageStore from "~/lib/store";
 
-export default async function Home() {
+const Home = () => {
+  const language = useLanguageStore((state) => state.language);
+
+  const translate = (en: string, fr: string, ar: string) => {
+    return language === 'fr' ? fr : language === 'ar' ? ar : en;
+  };
 
   const plans = [
     {
-      title: "Free",
+      title: translate("Free", "Gratuit", "مجاني"),
       price: undefined,
-      planName: "Basic plan",
+      planName: translate("Basic plan", "Plan de base", "الخطة الأساسية"),
       features: [
-        { name: "School Management", included: true },
-        { name: "(100~300) Users", included: true },
-        { name: "Communication Channels", included: false },
-        { name: "GPS Tracker", included: false },
-        { name: "AI Assistants", included: false },
-        { name: "Analysis/Insights", included: false },
-        { name: "Vision Monitor", included: false }
+        { name: translate("School Management", "Gestion scolaire", "إدارة المدرسة"), included: true },
+        { name: translate("(100~300) Users", "(100~300) Utilisateurs", "(100~300) مستخدم"), included: true },
+        { name: translate("Communication Channels", "Canaux de communication", "قنوات الاتصال"), included: false },
+        { name: translate("GPS Tracker", "Suivi GPS", "تتبع GPS"), included: false },
+        { name: translate("AI Assistants", "Assistants IA", "مساعدين الذكاء الاصطناعي"), included: false },
+        { name: translate("Analysis/Insights", "Analyse/Insights", "تحليل/رؤى"), included: false },
+        { name: translate("Vision Monitor", "Moniteur de vision", "مراقبة الرؤية"), included: false }
       ],
       robotPosition: "left" as const
     },
     {
       title: "$40",
       price: 40,
-      period: "/mon",
-      planName: "Standard Plan",
+      period: translate("/mon", "/mois", "/شهر"),
+      planName: translate("Standard Plan", "Plan Standard", "الخطة القياسية"),
       features: [
-        { name: "School Management", included: true },
-        { name: "(300~1000) Users", included: true },
-        { name: "Communication Channels", included: true },
-        { name: "GPS Tracker", included: true },
-        { name: "AI Assistants", included: false },
-        { name: "Analysis/Insights", included: false },
-        { name: "Vision Monitor", included: false }
+        { name: translate("School Management", "Gestion scolaire", "إدارة المدرسة"), included: true },
+        { name: translate("(300~1000) Users", "(300~1000) Utilisateurs", "(300~1000) مستخدم"), included: true },
+        { name: translate("Communication Channels", "Canaux de communication", "قنوات الاتصال"), included: true },
+        { name: translate("GPS Tracker", "Suivi GPS", "تتبع GPS"), included: true },
+        { name: translate("AI Assistants", "Assistants IA", "مساعدين الذكاء الاصطناعي"), included: false },
+        { name: translate("Analysis/Insights", "Analyse/Insights", "تحليل/رؤى"), included: false },
+        { name: translate("Vision Monitor", "Moniteur de vision", "مراقبة الرؤية"), included: false }
       ],
       isMiddle: true
     },
     {
       title: "$300",
       price: 300,
-      period: "/mon",
-      planName: "Premium Plan",
+      period: translate("/mon", "/mois", "/شهر"),
+      planName: translate("Premium Plan", "Plan Premium", "الخطة المميزة"),
       features: [
-        { name: "School Management", included: true },
-        { name: "(1000~5000) Users", included: true },
-        { name: "Communication Channels", included: true },
-        { name: "GPS Tracker", included: true },
-        { name: "AI Assistants", included: true },
-        { name: "Analysis/Insights", included: true },
-        { name: "Vision Monitor", included: true }
+        { name: translate("School Management", "Gestion scolaire", "إدارة المدرسة"), included: true },
+        { name: translate("(1000~5000) Users", "(1000~5000) Utilisateurs", "(1000~5000) مستخدم"), included: true },
+        { name: translate("Communication Channels", "Canaux de communication", "قنوات الاتصال"), included: true },
+        { name: translate("GPS Tracker", "Suivi GPS", "تتبع GPS"), included: true },
+        { name: translate("AI Assistants", "Assistants IA", "مساعدين الذكاء الاصطناعي"), included: true },
+        { name: translate("Analysis/Insights", "Analyse/Insights", "تحليل/رؤى"), included: true },
+        { name: translate("Vision Monitor", "Moniteur de vision", "مراقبة الرؤية"), included: true }
       ],
       robotPosition: "right" as const
     }
@@ -58,7 +65,6 @@ export default async function Home() {
 
   return (
     <main className="w-full">
-
       <section>
         <div className="min-h-[100svh] relative overflow-hidden bg-[url(/images/hero.gif)] bg-cover bg-center">
           <div className="relative flex items-center min-h-[100svh] py-16 sm:py-20">
@@ -67,14 +73,21 @@ export default async function Home() {
                 {/* Text Content */}
                 <div className="w-full md:w-1/2 text-white text-center md:text-left">
                   <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                    Empowering Education at Your Fingertips with EDUAI
+                    {translate(
+                      "Empowering Education at Your Fingertips with EDUAI",
+                      "L'éducation à portée de main avec EDUAI",
+                      "تمكين التعليم في متناول يديك مع EDUAI"
+                    )}
                   </h1>
                   <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto md:mx-0">
-                    Discover a new way of learning that connects teachers, parents, and
-                    students on one convenient and easy-to-use platform.
+                    {translate(
+                      "Discover a new way of learning that connects teachers, parents, and students on one convenient and easy-to-use platform.",
+                      "Découvrez une nouvelle façon d'apprendre qui connecte les enseignants, les parents et les étudiants sur une plateforme pratique et facile à utiliser.",
+                      "اكتشف طريقة جديدة للتعلم تربط المعلمين وأولياء الأمور والطلاب على منصة واحدة مريحة وسهلة الاستخدام."
+                    )}
                   </p>
                   <button className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-semibold hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl">
-                    Enroll Now
+                    {translate("Enroll Now", "Inscrivez-vous maintenant", "سجل الآن")}
                   </button>
                 </div>
 
@@ -110,16 +123,21 @@ export default async function Home() {
             {/* Content */}
             <div className="w-full text-white order-1 md:order-2">
               <h2 className="text-cyan-400 text-base sm:text-lg mb-3 sm:mb-4">
-                About EDUAI
+                {translate("About EDUAI", "À propos de EDUAI", "حول EDUAI")}
               </h2>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
-                Our intuition leads us to development
+                {translate(
+                  "Our intuition leads us to development",
+                  "Notre intuition nous mène au développement",
+                  "حدسنا يقودنا إلى التطوير"
+                )}
               </h3>
               <p className="text-gray-300 text-base sm:text-lg max-w-xl">
-                EDUAI is a complete school system that includes an admin system,
-                a teacher app, a parent app, and a student app. Our goal is to
-                streamline school operations and enhance communication and
-                engagement among all stakeholders.
+                {translate(
+                  "EDUAI is a complete school system that includes an admin system, a teacher app, a parent app, and a student app. Our goal is to streamline school operations and enhance communication and engagement among all stakeholders.",
+                  "EDUAI est un système scolaire complet qui comprend un système d'administration, une application pour les enseignants, une application pour les parents et une application pour les étudiants. Notre objectif est de rationaliser les opérations scolaires et d'améliorer la communication et l'engagement entre toutes les parties prenantes.",
+                  "EDUAI هو نظام مدرسي كامل يتضمن نظام إدارة، تطبيق للمعلمين، تطبيق لأولياء الأمور، وتطبيق للطلاب. هدفنا هو تبسيط العمليات المدرسية وتعزيز التواصل والمشاركة بين جميع الأطراف المعنية."
+                )}
               </p>
             </div>
           </div>
@@ -150,11 +168,14 @@ export default async function Home() {
         <div className="container mx-auto px-4 sm:px-6 mb-12 sm:mb-16 md:mb-20 relative z-10">
           <div className="max-w-3xl mx-auto text-center text-white">
             <h3 className="text-2xl sm:text-3xl font-medium mb-3 sm:mb-4">
-              Project Overview
+              {translate("Project Overview", "Aperçu du projet", "نظرة عامة على المشروع")}
             </h3>
             <p className="text-lg sm:text-xl">
-              Introducing a suite of integrated applications designed to enhance
-              the educational experience and communication among all stakeholders
+              {translate(
+                "Introducing a suite of integrated applications designed to enhance the educational experience and communication among all stakeholders",
+                "Présentation d'une suite d'applications intégrées conçues pour améliorer l'expérience éducative et la communication entre toutes les parties prenantes",
+                "تقديم مجموعة من التطبيقات المتكاملة المصممة لتعزيز التجربة التعليمية والتواصل بين جميع الأطراف المعنية"
+              )}
             </p>
           </div>
         </div>
@@ -166,11 +187,13 @@ export default async function Home() {
             <div className="w-full text-white order-2 md:order-1">
               <p className="text-lg sm:text-xl">
                 <span className="block text-2xl sm:text-3xl font-bold mb-3">
-                  Teacher App:
+                  {translate("Teacher App:", "Application Enseignant:", "تطبيق المعلم:")}
                 </span>
-                This app allows teachers to upload assignments, class materials,
-                and take attendance easily, streamlining the educational process
-                and student tracking.
+                {translate(
+                  "This app allows teachers to upload assignments, class materials, and take attendance easily, streamlining the educational process and student tracking.",
+                  "Cette application permet aux enseignants de télécharger des devoirs, du matériel de classe et de prendre les présences facilement, rationalisant le processus éducatif et le suivi des étudiants.",
+                  "يتيح هذا التطبيق للمعلمين تحميل الواجبات والمواد الدراسية وأخذ الحضور بسهولة، مما يبسط العملية التعليمية وتتبع الطلاب."
+                )}
               </p>
             </div>
 
@@ -214,12 +237,13 @@ export default async function Home() {
             <div className="w-full text-white order-1 md:order-2">
               <p className="text-lg sm:text-xl">
                 <span className="block text-2xl sm:text-3xl font-bold mb-4">
-                  Parent App:
+                  {translate("Parent App:", "Application Parent:", "تطبيق ولي الأمر:")}
                 </span>
-                This app enables parents to monitor their children&apos;s attendance
-                and performance, access study materials and assignments, know exam
-                schedules and grades, and track the school bus to ensure their
-                children&apos;s safety.
+                {translate(
+                  "This app enables parents to monitor their children's attendance and performance, access study materials and assignments, know exam schedules and grades, and track the school bus to ensure their children's safety.",
+                  "Cette application permet aux parents de surveiller la présence et les performances de leurs enfants, d'accéder aux matériaux d'étude et aux devoirs, de connaître les horaires des examens et les notes, et de suivre le bus scolaire pour assurer la sécurité de leurs enfants.",
+                  "يتيح هذا التطبيق لأولياء الأمور مراقبة حضور أطفالهم وأدائهم، والوصول إلى المواد الدراسية والواجبات، ومعرفة جداول الامتحانات والدرجات، وتتبع حافلة المدرسة لضمان سلامة أطفالهم."
+                )}
               </p>
             </div>
           </div>
@@ -243,12 +267,13 @@ export default async function Home() {
             <div className="w-full text-white">
               <p className="text-lg sm:text-xl">
                 <span className="block text-2xl sm:text-3xl font-bold mb-4">
-                  Student App:
+                  {translate("Student App:", "Application Étudiant:", "تطبيق الطالب:")}
                 </span>
-                Designed to help students organize their studies, this app provides
-                access to assignments and their due dates, exam schedules, study
-                materials, class schedules, and grades, making it easier for them
-                to track their academic progress.
+                {translate(
+                  "Designed to help students organize their studies, this app provides access to assignments and their due dates, exam schedules, study materials, class schedules, and grades, making it easier for them to track their academic progress.",
+                  "Conçue pour aider les étudiants à organiser leurs études, cette application fournit un accès aux devoirs et à leurs dates d'échéance, aux horaires des examens, aux matériaux d'étude, aux horaires des cours et aux notes, ce qui facilite le suivi de leur progression académique.",
+                  "مصمم لمساعدة الطلاب على تنظيم دراستهم، يوفر هذا التطبيق الوصول إلى الواجبات وتواريخ استحقاقها، وجداول الامتحانات، والمواد الدراسية، وجداول الحصص، والدرجات، مما يسهل عليهم تتبع تقدمهم الأكاديمي."
+                )}
               </p>
             </div>
 
@@ -272,10 +297,13 @@ export default async function Home() {
             <div className="w-full text-white order-1 md:order-2">
               <p className="text-lg sm:text-xl">
                 <span className="block text-2xl sm:text-3xl font-bold mb-4">
-                  Admin System:
+                  {translate("Admin System:", "Système Admin:", "نظام الإدارة:")}
                 </span>
-                This platform streamlines school management by allowing administrators
-                to manage user accounts, generate reports, and oversee operations.
+                {translate(
+                  "This platform streamlines school management by allowing administrators to manage user accounts, generate reports, and oversee operations.",
+                  "Cette plateforme rationalise la gestion scolaire en permettant aux administrateurs de gérer les comptes utilisateurs, de générer des rapports et de superviser les opérations.",
+                  "تعمل هذه المنصة على تبسيط إدارة المدرسة من خلال السماح للمدراء بإدارة حسابات المستخدمين، وإنشاء التقارير، والإشراف على العمليات."
+                )}
               </p>
             </div>
           </div>
@@ -297,9 +325,15 @@ export default async function Home() {
           <img src="/images/web2.png" alt="#" className="absolute right-0" />
         </div>
         <div className="container mx-auto grid mb-8 w-full text-center justify-center items-center text-white">
-          <h3 className="text-3xl font-medium mb-2">Choose your plan</h3>
+          <h3 className="text-3xl font-medium mb-2">
+            {translate("Choose your plan", "Choisissez votre plan", "اختر خطتك")}
+          </h3>
           <p className="text-xl">
-            Choose your plan and enjoy all the features you need for an exceptional educational experience for your children
+            {translate(
+              "Choose your plan and enjoy all the features you need for an exceptional educational experience for your children",
+              "Choisissez votre plan et profitez de toutes les fonctionnalités dont vous avez besoin pour une expérience éducative exceptionnelle pour vos enfants",
+              "اختر خطتك واستمتع بجميع الميزات التي تحتاجها لتجربة تعليمية استثنائية لأطفالك"
+            )}
           </p>
         </div>
         <div className="min-h-screen bg-navy-900 p-8">
@@ -316,9 +350,19 @@ export default async function Home() {
           <img src="/images/web2.png" alt="#" className="absolute right-0" />
         </div>
         <div className="container mx-auto grid mb-8 w-full text-center justify-center items-center text-white">
-          <h3 className="text-3xl font-medium mb-2">Experience Our Comprehensive School System</h3>
+          <h3 className="text-3xl font-medium mb-2">
+            {translate(
+              "Experience Our Comprehensive School System",
+              "Découvrez notre système scolaire complet",
+              "جرب نظامنا المدرسي الشامل"
+            )}
+          </h3>
           <p className="text-xl">
-            Explore an interactive experience with dedicated apps for students, teachers, and parents, along with a powerful dashboard for administrators.
+            {translate(
+              "Explore an interactive experience with dedicated apps for students, teachers, and parents, along with a powerful dashboard for administrators.",
+              "Explorez une expérience interactive avec des applications dédiées pour les étudiants, les enseignants et les parents, ainsi qu'un tableau de bord puissant pour les administrateurs.",
+              "استكشف تجربة تفاعلية مع تطبيقات مخصصة للطلاب والمعلمين وأولياء الأمور، بالإضافة إلى لوحة تحكم قوية للمدراء."
+            )}
           </p>
         </div>
         <div className="container mx-auto flex flex-wrap w-full justify-center items-center gap-20">
@@ -345,11 +389,14 @@ export default async function Home() {
         {/* Header */}
         <div className="container mx-auto px-4 sm:px-6 text-center text-white mb-8 sm:mb-12">
           <h3 className="text-2xl sm:text-3xl font-medium mb-2 sm:mb-4">
-            Contact Us
+            {translate("Contact Us", "Contactez-nous", "اتصل بنا")}
           </h3>
           <p className="text-lg sm:text-xl max-w-2xl mx-auto">
-            Do you have any questions or need more information? Don&apos;t hesitate
-            to get in touch with us; we&apos;re here to help!
+            {translate(
+              "Do you have any questions or need more information? Don't hesitate to get in touch with us; we're here to help!",
+              "Vous avez des questions ou besoin de plus d'informations ? N'hésitez pas à nous contacter; nous sommes là pour vous aider!",
+              "هل لديك أي أسئلة أو تحتاج إلى مزيد من المعلومات؟ لا تتردد في الاتصال بنا؛ نحن هنا لمساعدتك!"
+            )}
           </p>
         </div>
 
@@ -368,8 +415,8 @@ export default async function Home() {
                         <Input
                           type="text"
                           id="name"
-                          placeholder="Brian Clark"
-                          label="Name"
+                          placeholder={translate("Brian Clark", "Brian Clark", "براين كلارك")}
+                          label={translate("Name", "Nom", "الاسم")}
                         />
                       </div>
 
@@ -378,8 +425,8 @@ export default async function Home() {
                         <Input
                           type="email"
                           id="email"
-                          placeholder="example@youremail.com"
-                          label="Email"
+                          placeholder={translate("example@youremail.com", "exemple@votreemail.com", "example@youremail.com")}
+                          label={translate("Email", "Email", "البريد الإلكتروني")}
                         />
                       </div>
 
@@ -388,8 +435,8 @@ export default async function Home() {
                         <Input
                           type="tel"
                           id="phone"
-                          placeholder="(123) 456 - 7890"
-                          label="Phone"
+                          placeholder={translate("(123) 456 - 7890", "(123) 456 - 7890", "(123) 456 - 7890")}
+                          label={translate("Phone", "Téléphone", "الهاتف")}
                         />
                       </div>
 
@@ -398,20 +445,20 @@ export default async function Home() {
                         <Input
                           type="text"
                           id="company"
-                          placeholder="BRIX Agency"
-                          label="Company"
+                          placeholder={translate("BRIX Agency", "Agence BRIX", "وكالة BRIX")}
+                          label={translate("Company", "Société", "الشركة")}
                         />
                       </div>
 
                       {/* Message Input and Button */}
                       <div className="sm:col-span-2">
                         <label htmlFor="message" className="block text-gray-200 text-sm mb-2">
-                          Message
+                          {translate("Message", "Message", "الرسالة")}
                         </label>
                         <textarea
                           id="message"
                           rows={4}
-                          placeholder="Type your message here..."
+                          placeholder={translate("Type your message here...", "Tapez votre message ici...", "اكتب رسالتك هنا...")}
                           className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white rounded-lg 
                                  focus:outline-none focus:ring-2 focus:ring-blue-500"
                         ></textarea>
@@ -421,7 +468,7 @@ export default async function Home() {
                                  px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-blue-700 
                                  transition-colors flex items-center justify-center gap-2"
                         >
-                          <span>Send message</span>
+                          <span>{translate("Send message", "Envoyer le message", "إرسال الرسالة")}</span>
                           <span className="text-lg">→</span>
                         </button>
                       </div>
@@ -453,3 +500,4 @@ export default async function Home() {
     </main>
   );
 }
+export default Home;
