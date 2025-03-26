@@ -5,9 +5,36 @@ import Input from "~/components/Input";
 import PricingCard from "~/components/PricingCard";
 import Video from "~/components/Video";
 import useLanguageStore from "~/lib/store";
+import { useEffect, useState } from "react";
+
+interface VideoData {
+    id: string;
+    videoUrl: string;
+}
 
 const Home = () => {
   const language = useLanguageStore((state) => state.language);
+  const [videos, setVideos] = useState<VideoData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch('https://api.eduai.tech/api/v1/landing-page/public/all_videos');
+        const data = await response.json();
+        
+        if (data.success) {
+          setVideos(data.data);
+        }
+      } catch (err) {
+        console.error('Error fetching videos:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVideos();
+  }, []);
 
   const translate = (en: string, fr: string, ar: string) => {
     return language === 'fr' ? fr : language === 'ar' ? ar : en;
@@ -117,7 +144,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Video component */}
             <div className="w-full order-2 md:order-1">
-              <Video isBackground />
+              <Video isBackground video={videos[0]} />
             </div>
 
             {/* Content */}
@@ -199,7 +226,7 @@ const Home = () => {
 
             {/* Video Component */}
             <div className="w-full order-1 md:order-2">
-              <Video />
+              <Video video={videos[1]} />
             </div>
           </div>
         </div>
@@ -230,7 +257,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Video component */}
             <div className="w-full order-2 md:order-1">
-              <Video />
+              <Video video={videos[2]} />
             </div>
 
             {/* Content */}
@@ -279,7 +306,7 @@ const Home = () => {
 
             {/* Video component */}
             <div className="w-full">
-              <Video />
+              <Video video={videos[3]} />
             </div>
           </div>
         </div>
@@ -290,7 +317,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Video component */}
             <div className="w-full order-2 md:order-1">
-              <Video />
+              <Video video={videos[4]} />
             </div>
 
             {/* Content */}
